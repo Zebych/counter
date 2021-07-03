@@ -11,7 +11,9 @@ type CustomCounterPropsType = {
 const CustomCounter: React.FC<CustomCounterPropsType> = (props) => {
     let presentValue = props.value
 
-    const incButton = () => presentValue < 5 ? props.incButton() : ''
+    const incButton = () =>{
+
+    }
 
     return (
         <div className={s.outer_contour}>
@@ -19,11 +21,12 @@ const CustomCounter: React.FC<CustomCounterPropsType> = (props) => {
             <div className={s.counter}>
                 <div className={s.headDisplay}>
                     <h3>max value:</h3>
-                    <div className={s.display}>{presentValue}</div>
+                    <input className={s.display}  type={"number"} min={0} max={24}/>
                 </div>
                 <div className={s.headDisplay}>
                     <h3>start value:</h3>
-                    <div className={s.display}>{presentValue}</div>
+                    <input className={s.display}  type={"number"} min={0} max={24} value={props.value}/>
+                    {/*<div className={s.display}>{presentValue}</div>*/}
                 </div>
             </div>
 
