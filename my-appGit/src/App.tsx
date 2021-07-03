@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import Counter from "./Counter/Сounter";
+import CustomCounter from "./CustomCounter/CustomСounter";
 
 
 function App() {
@@ -13,8 +14,10 @@ function App() {
         setValue(0)
     }
 
-    return (
-        <Counter value={value} incButton={incButton} resetButton={resetButton}/>
+    return (<div className={'position'}>
+            <CustomCounter value={value} incButton={incButton}/>
+            <Counter value={value} incButton={incButton} resetButton={resetButton}/>
+        </div>
     )
 }
 

@@ -3,13 +3,13 @@ import React from 'react';
 import s from './Counter.module.css'
 
 
-type PropsType = {
+type CounterPropsType = {
     value: number
     incButton: () => void
     resetButton: () => void
 }
 
-const Counter: React.FC<PropsType> = (props) => {
+const Counter: React.FC<CounterPropsType> = (props) => {
     let presentValue = props.value
 
     const incButton = () => presentValue < 5 ? props.incButton() : ''
