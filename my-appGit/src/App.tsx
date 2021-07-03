@@ -13,9 +13,14 @@ function App() {
     const resetButton = () => {
         setValue(0)
     }
+    const startValue = (start: string) => {
 
+    }
+    const maxValue = (max: string) => {
+
+    }
     return (<div className={'position'}>
-            <CustomCounter value={value} incButton={incButton}/>
+            <CustomCounter value={value} maxValue={maxValue} StartValue={startValue}/>
             <Counter value={value} incButton={incButton} resetButton={resetButton}/>
         </div>
     )
