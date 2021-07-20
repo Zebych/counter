@@ -9,25 +9,33 @@ function App() {
     const [valueMax, setValueMax] = useState(24)
     const [valueStart, setValueStart] = useState(0)
 
-    useEffect(()=>{
-        localStorage.setItem('valueMax',JSON.stringify(valueMax))
-    },[valueMax])
     useEffect(() => {
         let maxValue = localStorage.getItem('valueMax')
         if (maxValue) {
             setValueMax(JSON.parse(maxValue))
         }
     }, [])
-
-    useEffect(()=>{
-        localStorage.setItem('valueStart',JSON.stringify(valueStart))
-    },[valueStart])
     useEffect(() => {
         let startValue = localStorage.getItem('valueStart')
         if (startValue) {
             setValueStart(JSON.parse(startValue))
         }
     }, [])
+    useEffect(()=>{
+        let startValue = localStorage.getItem('valueStart')
+        if (startValue) {
+            setValue(JSON.parse(startValue))
+        }
+    },[])
+    useEffect(()=>{
+        localStorage.setItem('valueMax',JSON.stringify(valueMax))
+    },[valueMax])
+
+
+    useEffect(()=>{
+        localStorage.setItem('valueStart',JSON.stringify(valueStart))
+    },[valueStart])
+
 
     const incButton = () => {
         setValue(++value)
