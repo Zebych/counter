@@ -1,4 +1,4 @@
-import React, {ChangeEvent} from 'react';
+import React, {ChangeEvent, useEffect} from 'react';
 import s from './CustomCounter.module.css'
 
 
@@ -8,10 +8,13 @@ type CustomCounterPropsType = {
     valueStart:number
     valueMax:number
     setValueStart:(parseValue:number)=>void
-    setValue:(parseMaxValue:number)=>void
+    // setValue:(parseMaxValue:number)=>void
 }
 
 const CustomCounter: React.FC<CustomCounterPropsType> = (props) => {
+    // useEffect(() => {
+    //     localStorage.setItem('valueStart', JSON.stringify(props.valueStart))
+    // }, [props.valueStart])
 
     const valueStart=props.valueStart
 
