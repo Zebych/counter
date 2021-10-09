@@ -1,3 +1,5 @@
+import {Dispatch} from "redux";
+
 type InitStateType = typeof initState
 type ActionType = CountValueActionType | IncValueActionType | ResetValueActionType
 
@@ -28,7 +30,7 @@ export const counterReducer = (state: InitStateType = initState, action: ActionT
         case 'INC_VALUE': {
             return {
                 ...state,
-                value: ++action.value
+                value: ++state.value
             }
         }
         case 'RESET_VALUE': {
@@ -41,7 +43,22 @@ export const counterReducer = (state: InitStateType = initState, action: ActionT
             return state
     }
 }
-
-export const countValue = (value: number) => ({type: 'VALUE', value} as const)
-export const incValue = (value: number) => ({type: 'INC_VALUE', value} as const)
+//ACTIONS
+export const startValueC = (value: number) => ({type: 'VALUE', value} as const)
+export const incValue = () => ({type: 'INC_VALUE'} as const)
 export const resetValue = (value: number) => ({type: 'RESET_VALUE', value} as const)
+
+//THUNK
+export const incValuesTC = () => (dispatch: Dispatch) => {
+    dispatch(incValue())
+}
+export const startValueFromLocalStorageTC = (valueStart:number) => (dispatch: Dispatch) => {
+    // let value = localStorage.getItem('app-state')
+    // if (value) {
+    //     dispatch(startValueC(JSON.parse(value)))
+    // }
+    // dispatch(incValue())
+    dispatch(startValueC(valueStart))
+
+}
+

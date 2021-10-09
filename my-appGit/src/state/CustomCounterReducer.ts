@@ -1,20 +1,20 @@
+import {Dispatch} from "redux";
+import {incValue, startValueC} from "./counterReducer";
+
 type InitStateType = typeof initState
-type ActionType = StartValueActionType
+type ActionType = StartValueActionType | MaxValueActionType
 
 export type StartValueActionType = {
     type: 'START_VALUE',
-    value: number,
+    valueS: number,
 }
-export type IncValueActionType = {
-    type: 'INC_VALUE',
-    value: number,
+export type MaxValueActionType = {
+    type: 'MAX_VALUE',
+    maxValue: number,
 }
-export type ResetValueActionType = {
-    type: 'RESET_VALUE',
-    value: number,
-}
+
 const initState = {
-    valueMax: 0,
+    valueMax: 24,
     valueStart:0,
 }
 
@@ -23,27 +23,28 @@ export const customCounterReducer = (state: InitStateType = initState, action: A
         case 'START_VALUE': {
             return {
                 ...state,
-                valueStart: action.value
+                valueStart: action.valueS
                 // value: action.value
             }
         }
-        // case 'INC_VALUE': {
-        //     return {
-        //         ...state,
-        //         // value: ++action.value
-        //     }
-        // }
-        // case 'RESET_VALUE': {
-        //     return {
-        //         ...state,
-        //         // value: action.value
-        //     }
-        // }
+        case 'MAX_VALUE': {
+            return {
+                ...state,
+                valueMax: action.maxValue
+            }
+        }
         default:
             return state
     }
 }
 
-export const setStartValueC = (parseValue: number) => ({type: 'START_VALUE', parseValue} as const)
-// export const incValue = (value: number) => ({type: 'INC_VALUE', value} as const)
-// export const resetValue = (value: number) => ({type: 'RESET_VALUE', value} as const)
+export const setStartValueC = (valueS: number) => ({type: 'START_VALUE', valueS} as const)
+export const maxValueC = (maxValue: number) => ({type: 'MAX_VALUE', maxValue} as const)
+//thunk
+export const setStartValueTC=(valueS:number)=>(dispatch:Dispatch)=>{
+    // localStorage.setItem('app-state',JSON.stringify(valueS))
+    // if (valueS) {
+    //     dispatch(startValueC(valueS))
+    // }
+    dispatch(setStartValueC(valueS))
+}

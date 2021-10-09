@@ -8,13 +8,9 @@ type CustomCounterPropsType = {
     valueStart:number
     valueMax:number
     setValueStart:(parseValue:number)=>void
-    // setValue:(parseMaxValue:number)=>void
 }
 
 const CustomCounter: React.FC<CustomCounterPropsType> = (props) => {
-    // useEffect(() => {
-    //     localStorage.setItem('valueStart', JSON.stringify(props.valueStart))
-    // }, [props.valueStart])
 
     const valueStart=props.valueStart
 
@@ -27,6 +23,7 @@ const CustomCounter: React.FC<CustomCounterPropsType> = (props) => {
     }
 
     const setButton=()=>{
+        // props.startValue()
         props.startValue(valueStart)
     }
     return (
