@@ -1,4 +1,5 @@
 //https://medium.com/@jrcreencia/persisting-redux-state-to-local-storage-f81eb0b90e7e
+
 //загрузка состояния из localStorage
 import {AppRootStateType} from "../state/store";
 

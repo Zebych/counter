@@ -1,6 +1,6 @@
 import {applyMiddleware, combineReducers, createStore} from 'redux';
 import thunk from 'redux-thunk';
-import {counterReducer, incValue} from "./counterReducer";
+import {counterReducer} from "./counterReducer";
 import {customCounterReducer} from "./CustomCounterReducer";
 import {LoadState, saveState} from "../utils/localStorage";
 
